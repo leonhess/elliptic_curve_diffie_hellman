@@ -103,7 +103,6 @@ class elliptical_curve:
     ## Cryptic functions
     def generate_secret(self):
         self.K = secrets.choice(range(1,self.n))
-        self.K = 9
         print(self.K)
 
     def calculate_secret_point(self):
