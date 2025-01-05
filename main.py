@@ -11,13 +11,15 @@ def main():
     n = 10
     h = 10
     curve = elliptical_curve(p,a,b,G,h) 
-    
+    print("generate cyclic group") 
     curve.calculate_cyclic_group()
+    input("generate secret")
     curve.generate_secret()
+    input("generate secret point")
     curve.calculate_secret_point() 
     # receive public point of bob 
     AP = point(10,6)
-
+    input("generate shared secret")
     curve.calculate_shared_Point(AP)
 
 if __name__ == "__main__":
