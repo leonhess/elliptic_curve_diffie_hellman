@@ -138,6 +138,8 @@ class elliptical_curve:
 
     def get_order(self):
         return self.n
-    
+   
+    def get_public_point(self):
+       return self.public_Point
 
     
