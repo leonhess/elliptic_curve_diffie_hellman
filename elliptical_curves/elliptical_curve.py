@@ -105,7 +105,7 @@ class elliptical_curve:
         self.K = secrets.choice(range(1,self.n))
         print(self.K)
 
-    def calculate_secret_point(self):
+    def calculate_public_point(self):
         secret_point = self.multiply_point(self.G, self.K-1)
         if not self.is_on_curve(secret_point):
             print("secret point error")
