@@ -103,30 +103,25 @@ class elliptical_curve:
     ## Cryptic functions
     def generate_secret(self):
         self.K = secrets.choice(range(1,self.n))
-        print(self.K)
 
     def calculate_public_point(self):
         secret_point = self.multiply_point(self.G, self.K-1)
         if not self.is_on_curve(secret_point):
             print("secret point error")
-        self.public_Point = secret_point
-        secret_point.pr()
+        self.public_point = secret_point
 
     def calculate_shared_Point(self,P):
         shared_point = self.multiply_point(P, self.K-1)
         if not self.is_on_curve(shared_point):
             print("secret point error")
-        self.shared_Point = shared_point
-        shared_point.pr()
+        self.shared_point = shared_point
 
     def calculate_cyclic_group(self):
         n = 1 
         group = [self.G]
         while(not group[n-1].is_infinte()):
-            group[n-1].pr()
             P = self.add_points(self.G,group[n-1])
             group.append(P)
-            P.pr()
             n+=1
         self.n = n
         self.cyclic_group = group
@@ -140,6 +135,9 @@ class elliptical_curve:
         return self.n
    
     def get_public_point(self):
-       return self.public_Point
+       return self.public_point
+    
+    def get_shared_secret_point(self):
+       return self.shared_point
 
     
